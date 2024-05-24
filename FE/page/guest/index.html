@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css" />
+    
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
@@ -15,19 +16,22 @@
         
         <div class="top_menu">
           <div class="logo">Wall-E</div>
+          <form class="search">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Tìm kiếm lớp học, trung tâm, ...">
+            <button type="submit">Tìm</button>
+        </form>
           <ul>
-            <li>
-              <a class="search" href="#"> <i class="fas fa-search"></i></a>
-            </li>
+            
             <li>
               <a class="btn btn-sign-up" href="#">
-                Sign Up
+                Đăng ký
               </a>
               </a>
             </li>
             <li>
               <a class="btn btn-sign-in" href="#">
-                Sign In
+                Đăng nhập
               </a>
             </li>
           </ul>
@@ -39,13 +43,22 @@
       <div class="main_container">
        <div class="content">
         <h3>Wall-E</h3>
+        <div class="guest-intro">
+            <div class="desc">
                 <h1>Kết nối tương lai với Wall-E</h1>
                 <p>Wall-E - quản lý giáo dục tối ưu: Quản lý dễ dàng, đăng ký thuận tiện, kết nối tương lai của bạn hôm nay.</p>
-                <div class="search">
+            </div>
+            <div class="image">
+                <img src="/FE/images/school-suppliers.png" />
+            </div>
+        </div>
+        
+                
+                <!-- <div class="search">
                     <i class="fa fa-search"></i>
                     <input type="text" placeholder="Tìm kiếm lớp học, trung tâm, ...">
                     <button>Tìm</button>
-                </div>
+                </div> -->
                 
             </div>
       </div>
@@ -97,8 +110,8 @@
             <div class="container">
                 <div class="detail">
                     <h3>Wall-E</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere in, non praesentium soluta quis enim aperiam aliquam, rem totam porro, vel obcaecati modi architecto error maiores iusto quaerat aut eum.</p>
-                    <h5>get in touch</h5>
+                    <p>quản lý giáo dục tối ưu: Quản lý dễ dàng, đăng ký thuận tiện, kết nối tương lai của bạn hôm nay.</p>
+                    <h5></h5>
                     <a href="#">example@mail.com</a>
                     <div class="social">
                         <a href="#"><i class="fa fa-linkedin-square"></i></a>
@@ -130,7 +143,7 @@
                 </div>
             </div>
         </section>
-    </footer>
+</footer>
     <!-- footer section ends here  -->
 
   </body>
