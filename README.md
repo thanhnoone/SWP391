@@ -2,6 +2,7 @@
 ..
 Một số page đã có giao diện
 * Auth:
+* Auth:
 - Đăng ký
  ![image](https://github.com/thanhnoone/SWP391/assets/137372274/3db02c4a-2966-4b9e-a223-0ea6680fef49)
 - Đăng nhập
