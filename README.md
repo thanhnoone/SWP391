@@ -16,11 +16,14 @@ Một số page đã có giao diện
  ![image](https://github.com/thanhnoone/SWP391/assets/137372274/0134924c-ef1d-4b28-a0bd-a4ce26f7da51)
  *User
 - Trang chủ người dùng (có dropdown ava)
-![alt text](image-1.png)
+![image](https://github.com/thanhnoone/SWP391/assets/137372274/3777473d-f731-4132-a872-7f173e99ab62)
+
 - Xem/đổi thông tin cá nhân
- ![image](https://github.com/thanhnoone/SWP391/assets/137372274/b6f6fb58-89e6-4906-90a8-3bf5e1f158d4)
+![image](https://github.com/thanhnoone/SWP391/assets/137372274/1b945ee0-77e3-43b9-a3d8-8c27a53e11de)
+
 * Guest:
-![alt text](image.png)
+![image](https://github.com/thanhnoone/SWP391/assets/137372274/53807407-be28-4536-8c17-191093e4f70e)
+
 
 
 
