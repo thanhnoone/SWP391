@@ -29,10 +29,28 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginUser(@RequestParam String username, @RequestParam String password, @RequestParam int roleId, Model model, HttpSession session) {
-        if (userService.authenticateUser(username, password, roleId)) {
+        if (userService.authenticateUser(username, password)) {
             User user = userService.findByUsername(username);
             session.setAttribute("user", user);
-            return "redirect:/dashboard";
+
+            // Chuyển đổi RoleDescription thành chuỗi
+            String roleDesc = user.getRole().getDescription().name();
+
+            // Chuyển hướng dựa trên vai trò người dùng
+            switch (roleDesc) {
+                case "ADMIN":
+                    return "redirect:/admin";
+                case "STUDENT":
+                    return "redirect:/dashboard";
+                case "PARENT":
+                    return "redirect:/parent/dashboard";
+                case "TEACHER":
+                    return "redirect:/teacher/dashboard";
+                case "MANAGER":
+                    return "redirect:/manager/dashboard";
+                default:
+                    return "redirect:/login";
+            }
         }
         List<Role> roles = userService.findAllRoles();
         model.addAttribute("roles", roles);
@@ -43,6 +61,7 @@ public class UserController {
         return "login";
     }
 
+
     @GetMapping("/dashboard")
     public String dashboard(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -51,6 +70,16 @@ public class UserController {
         }
         model.addAttribute("user", user);
         return "dashboard";
+    }
+
+    @GetMapping("/admin/dashboard")
+    public String adminDashboard(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null || user.getRole().getId() != 1) { // Assuming role ID 1 is for Admin
+            return "redirect:/login";
+        }
+        model.addAttribute("user", user);
+        return "admin-dashboard"; // Make sure you have an admin-dashboard.html template
     }
 
     @GetMapping("/profile")
@@ -90,7 +119,7 @@ public class UserController {
         session.setAttribute("user", user);
         return "redirect:/profile";
     }
-    
+
     @PostMapping("/edit-profile")
     public String saveProfile(@ModelAttribute User updatedUser, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -107,8 +136,6 @@ public class UserController {
         session.setAttribute("user", user);
         return "redirect:/profile";
     }
-
-    
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -205,4 +232,39 @@ public class UserController {
         session.invalidate();
         return "redirect:/login";
     }
+    
+    @GetMapping("/admin-dashboard")
+    public String getAdminDashboard() {
+        return "dashboardadmin"; // Tên file HTML mà bạn muốn render, không cần đuôi .html
+    }
+
+    @GetMapping("/accountManagement")
+    public String getAccountManagement() {
+        return "accountManagement";
+    }
+
+    @GetMapping("/approveManagement")
+    public String getApproveManagement() {
+        return "approveManagement";
+    }
+
+    @GetMapping("/changePassword")
+    public String getChangePassword() {
+        return "changePassword";
+    }
+    @GetMapping("/notificationDetail")
+    public String getNotificationDetail() {
+        return "notificationDetail"; // Tên file HTML không cần đuôi .html
+    }
+    @GetMapping("/profileadmin")
+    public String getProfileadmin() {
+        return "profileadmin"; // Tên file HTML không cần đuôi .html
+    }
+    @GetMapping("/dashboardadmin")
+    public String getDashboardAdmin() {
+        return "dashboardadmin"; // Tên file HTML không cần đuôi .html
+    }
+    
+
+   
 }

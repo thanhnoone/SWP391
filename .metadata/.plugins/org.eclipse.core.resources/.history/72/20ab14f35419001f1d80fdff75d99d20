@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="/css/styleforgotpassword.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Đặt lại mật khẩu</h1>
+        <form method="post" action="/reset-password">
+            <input type="text" name="resetCode" required placeholder="Mã xác nhận">
+            <input type="password" name="newPassword" required placeholder="Mật khẩu mới">
+            <p class="recover">
+                <a href="/login">Quay lại</a>
+            </p>
+            <input type="submit" class="button" value="Xác nhận" />
+        </form>
+    </div>
+</body>
+</html>

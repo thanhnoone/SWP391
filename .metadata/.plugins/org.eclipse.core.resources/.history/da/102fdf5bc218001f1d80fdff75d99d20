@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest Page</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header class="header">
+    <a href="#" class="logo"> Wall-E </a>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="home" id="home">
+    <div class="container">
+        <div class="landing">
+            <div class="content">
+                <span>Welcome to</span>
+                <h3>Wall-E</h3>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+            <div class="image">
+                <img src="/img/home-image.jpg" alt="Home Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="image">
+        <img src="/img/about-image.jpg" alt="About Image">
+    </div>
+    <div class="content">
+        <h3>About Us</h3>
+        <p>Some information about your application.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services-box">
+        <div class="box">
+            <h3>Service 1</h3>
+            <p>Description of Service 1</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="box">
+            <h3>Service 2</h3>
+            <p>Description of Service 2</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="box">
+            <h3>Service 3</h3>
+            <p>Description of Service 3</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="top">
+            <div class="logo-details">Wall-E</div>
+        </div>
+        <div class="link-boxes">
+            <div class="box">
+                <span class="link_name">Links</span>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </div>
+            <div class="box input-box">
+                <span class="link_name">Subscribe</span>
+                <input type="email" placeholder="Enter your email">
+                <input type="button" value="Subscribe">
+            </div>
+        </div>
+    </div>
+    <div class="bottom-details">
+        <div class="bottom_text">
+            <span>&copy; 2024 Wall-E. All Rights Reserved.</span>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

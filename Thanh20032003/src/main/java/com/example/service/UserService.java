@@ -51,9 +51,9 @@ public class UserService {
         return roleRepository.findAll();
     }
 
-    public boolean authenticateUser(String username, String password, int roleId) {
+    public boolean authenticateUser(String username, String password) {
         User user = findByUsername(username);
-        return user != null && BCrypt.checkpw(password, user.getPassword()) && user.getRole().getId() == roleId;
+        return user != null && BCrypt.checkpw(password, user.getPassword()) ;
     }
 
     public List<User> findAllUsers() {
@@ -118,4 +118,6 @@ public class UserService {
     public User findByEmailAndCode(String email, int code) {
         return userRepository.findByEmailAndCode(email, code);
     }
+    
+    
 }

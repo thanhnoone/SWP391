@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest Page</title>
+    <link rel="stylesheet" href="/css/guest.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> My Application</a>
+        <nav class="navbar">
+            <a href="/guest">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-bars" id="menu-btn"></i>
+        </div>
+    </header>
+
+    <section class="home">
+        <div class="container">
+            <div class="landing">
+                <div class="content">
+                    <span>Welcome to</span>
+                    <h3>My Application</h3>
+                    <a href="/register" class="btn">Get Started</a>
+                </div>
+                <div class="image">
+                    <img src="path/to/your/image.jpg" alt="Home Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="image">
+            <img src="path/to/your/about-image.jpg" alt="About Image">
+        </div>
+        <div class="content">
+            <h3>About Us</h3>
+            <p>Some information about your application.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="services-box">
+            <div class="box">
+                <h3>Service 1</h3>
+                <p>Description of Service 1</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="box">
+                <h3>Service 2</h3>
+                <p>Description of Service 2</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="box">
+                <h3>Service 3</h3>
+                <p>Description of Service 3</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="top">
+                <div class="logo-details">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="logo_name">My Application</span>
+                </div>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <h2>Links</h2>
+                    <li><a href="/guest">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </div>
+                <div class="box input-box">
+                    <h2>Subscribe</h2>
+                    <input type="email" placeholder="Enter your email">
+                    <input type="button" value="Subscribe">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span>&copy; 2024 My Application. All rights reserved.</span>
+                <span><a href="#">Privacy Policy</a></span>
+                <span><a href="#">Terms & Conditions</a></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

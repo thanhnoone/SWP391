@@ -1,0 +1,19 @@
+spring.datasource.url=jdbc:mysql://localhost:3306/swp391_db_releasee
+spring.datasource.username=root
+spring.datasource.password=Thanh20032003@
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+spring.thymeleaf.cache=false
+
+# Email settings
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=thanhdhde170795@gmail.com
+spring.mail.password=thanh20032003
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+spring.cloud.gcp.storage.project-id=swp391-424310
+spring.cloud.gcp.credentials.location=spring.cloud.gcp.credentials.location=file:D:/FPT/CN5/SWP391/swp391-424310-22412deedef66.json

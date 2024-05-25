@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="/css/styleregister.css">
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Đăng ký tài khoản</h1>
+        <p>Hãy điền thông tin bên dưới để tạo tài khoản mới</p>
+        <form th:action="@{/register}" method="post">
+            <div>
+                <input type="text" required placeholder="Họ và tên" name="name">
+            </div>
+            <div>
+                <input type="text" required placeholder="Tên người dùng" name="username">
+                <p th:if="${usernameError}" th:text="${usernameError}" class="error"></p>
+            </div>
+            <div>
+                <input type="email" required placeholder="Nhập email" name="email">
+                <p th:if="${emailError}" th:text="${emailError}" class="error"></p>
+            </div>
+            <div>
+                <input type="password" required placeholder="Nhập mật khẩu" name="password">
+            </div>
+            <div>
+                <input type="password" required placeholder="Xác nhận mật khẩu" name="confirmPassword">
+            </div>
+            <div>
+                <input type="date" required placeholder="Ngày sinh" name="dob">
+            </div>
+            <div>
+                <select name="gender" required>
+                    <option value="true">Nam</option>
+                    <option value="false">Nữ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" required placeholder="Số điện thoại" name="phone">
+            </div>
+            <div>
+                <input type="text" required placeholder="Địa chỉ" name="address">
+            </div>
+            <div>
+                <input type="number" required placeholder="Mã người dùng" name="code">
+            </div>
+            <div>
+                <select name="roleId" required>
+                    <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
+                </select>
+            </div>
+            <button type="submit" class="button">Đăng ký</button>
+        </form>
+        <div class="not-member">
+            Đã có tài khoản? <a th:href="@{/login}">Đăng nhập</a>
+        </div>
+    </div>
+</body>
+</html>
