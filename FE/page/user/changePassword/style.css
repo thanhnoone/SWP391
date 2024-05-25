@@ -267,7 +267,7 @@ box-shadow: var(--shadow); */
 .wrapper .main_container {
   width: (100% - 200px);
   margin-top: 70px;
-  margin-left: 200px;
+  margin-left: 220px;
   padding: 15px;
   transition: all 0.3s ease;
 }
@@ -333,7 +333,7 @@ box-shadow: var(--shadow); */
 
 .profile-info .profile-input input {
   width: 79%;
-  height: 2rem;
+  height: 2.5rem;
   border-radius: 10px;
   border: 0.5px solid #ccc;
   padding-left: 0.5rem;
