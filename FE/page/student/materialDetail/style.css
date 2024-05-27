@@ -449,7 +449,7 @@ box-shadow: var(--shadow); */
   cursor: pointer;
 }
 
-#content main .head-title .left button:hover{
+#content main .head-title .left button:hover {
   color: #2648ae;
   background-color: #fff;
   border: 1px solid #2648ae;
@@ -459,8 +459,35 @@ box-shadow: var(--shadow); */
   margin-right: 0.5rem;
 }
 
+.head-title form{
+  display: flex;
+  gap: 1rem;
+}
+
+.head{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
 
+.btn-download {
+  width: 7rem;
+  font-size: 1rem;
+  border-radius: .375rem;
+  border: none;
+  height: 2rem;
+  color: #fff;
+  background-color: #2648ae;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+
+.btn-download:hover{
+  color: #2648ae;
+  background-color: #fff;
+  border: 1px solid #2648ae;
+}
 
 /* MAIN */
 /* CONTENT */
@@ -507,7 +534,6 @@ box-shadow: var(--shadow); */
   text-decoration: none;
   cursor: pointer;
 }
-
 
 /* Start notification modal */
 #notificationModal .modal-content{

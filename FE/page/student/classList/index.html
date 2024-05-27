@@ -43,13 +43,13 @@
               </div>
               <div class="content-notification">
                 <ul>
-                  <li><a href="#">Thông báo về lớp học A</a></li>
+                  <li><a href="#" data-notification="Thông báo chi tiết về lớp học A">Thông báo về lớp học A</a></li>
                 </ul>
                 <ul>
-                  <li><a href="#">Thông báo về lớp học B</a></li>
+                  <li><a href="#" data-notification="Thông báo chi tiết về lớp học B">Thông báo về lớp học B</a></li>
                 </ul>
                 <ul>
-                  <li><a href="#">Thông báo về lớp học C</a></li>
+                  <li><a href="#" data-notification="Thông báo chi tiết về lớp học C">Thông báo về lớp học C</a></li>
                 </ul>
               </div>
             </div>
@@ -96,7 +96,7 @@
       <div class="sidebar">
         <ul>
           <li>
-            <a href="index.html" >
+            <a href="../dashboard/index.html">
               <span class="icon"><i class="fas fa-home"></i></span>
               <span class="title">Trang chủ</span></a
             >
@@ -113,7 +113,6 @@
               <span class="title">Lớp học của tôi</span>
             </a>
           </li>
-          
         </ul>
       </div>
 
@@ -124,75 +123,59 @@
             <div class="head-title">
               <div class="left">
                 <h1>Lớp học của tôi</h1>
-                
+                <button onclick="window.location.href='../material/index.html'"><i class="fas fa-plus"></i>Tìm tài liệu</button>
+
                 <!-- <select id="year-select"></select>
                 <select id="week-select"></select> -->
               </div>
             </div>
             <!-- Start timetable -->
-            <table>
-              <tr>
-                <th>Day/Period</th>
-                <th>9:30-10:20</th>
-                <th>10:20-11:10</th>
-                <th>11:10-12:00</th>
-                <th>12:00-12:40</th>
-                <th>12:40-1:30</th>
-                <th>1:30-2:20</th>
-                <th>2:20-3:10</th>
-                <th>3:10-4:00</th>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Monday</b></td>
-                <td>Eng</td>
-                <td>Mat</td>
-                <td>Che</td>
-                <td rowspan="6" class="special"><b>LUNCH</b></td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Phy</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Tuesday</b></td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td>Mat</td>
-                <td class="special">SPORTS</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Wednesday</b></td>
-                <td>Mat</td>
-                <td>Phy</td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td colspan="3">LIBRARY</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Thursday</b></td>
-                <td>Phy</td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Mat</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Friday</b></td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Mat</td>
-                <td>Che</td>
-                <td>Eng</td>
-                <td>Phy</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Saturday</b></td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td>Mat</td>
-                <td colspan="3">SEMINAR</td>
-                <td class="special">SPORTS</td>
-              </tr>
-            </table>
-            <!-- End timetable -->
+
+            <div class="table-data">
+              <div class="order">
+                <div class="head">
+                  <h3>Danh sách lớp học</h3>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Tên lớp</th>
+                      <th>Môn học</th>
+                      <th>Giáo viên</th>
+                      <th>Chi tiết</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p>Lớp ABC</p>
+                      </td>
+                      <td>Toán</td>
+                      <td>Giáo viên A - Trung tâm Start</td>
+                      <td><a href="../classDetail/index.html">Xem</a></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>Lớp XYZ</p>
+                      </td>
+                      <td>Văn</td>
+                      <td>Giáo viên B - Trung tâm Y</td>
+                      <td><a href="../classDetail/index.html">Xem</a></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>Thông báo 1</p>
+                      </td>
+                      <td>Hóa</td>
+                      <td>Giáo viên C - Trung tâm X</td>
+                      <td><a href="../classDetail/index.html">Xem</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--  -->
+            </div>
+            <!-- End classlist -->
           </main>
           <!-- MAIN -->
         </section>

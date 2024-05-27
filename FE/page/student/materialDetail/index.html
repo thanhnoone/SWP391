@@ -7,6 +7,11 @@
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -82,7 +87,7 @@
                 <hr />
 
                 <li class="profile-dropdown-list-item">
-                  <a href="../../../index.html">
+                  <a href="#">
                     <i class="fas fa-sign-out-alt"></i>
                     Đăng xuất
                   </a>
@@ -96,7 +101,7 @@
       <div class="sidebar">
         <ul>
           <li>
-            <a href="index.html" class="active">
+            <a href="../dashboard/index.html">
               <span class="icon"><i class="fas fa-home"></i></span>
               <span class="title">Trang chủ</span></a
             >
@@ -108,7 +113,7 @@
             >
           </li>
           <li>
-            <a href="../classList/index.html">
+            <a href="../classList/index.html" class="active">
               <span class="icon"><i class="fas fa-clipboard-list"></i></span>
               <span class="title">Lớp học của tôi</span>
             </a>
@@ -122,102 +127,30 @@
           <main>
             <div class="head-title">
               <div class="left">
-                <h1>Thời khóa biểu</h1>
-                <!-- <select id="year-select"></select>
-                <select id="week-select"></select> -->
+                <h1>Chi tiết tài liệu</h1>       
               </div>
             </div>
-            <!-- Start timetable -->
-            <table>
-              <tr>
-                <th>Day/Period</th>
-                <th>9:30-10:20</th>
-                <th>10:20-11:10</th>
-                <th>11:10-12:00</th>
-                <th>12:00-12:40</th>
-                <th>12:40-1:30</th>
-                <th>1:30-2:20</th>
-                <th>2:20-3:10</th>
-                <th>3:10-4:00</th>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Monday</b></td>
-                <td>Eng</td>
-                <td>Mat</td>
-                <td>Che</td>
-                <td rowspan="6" class="special"><b>LUNCH</b></td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Phy</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Tuesday</b></td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td>Mat</td>
-                <td class="special">SPORTS</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Wednesday</b></td>
-                <td>Mat</td>
-                <td>Phy</td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td colspan="3">LIBRARY</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Thursday</b></td>
-                <td>Phy</td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Mat</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Friday</b></td>
-                <td colspan="3" class="special">LAB</td>
-                <td>Mat</td>
-                <td>Che</td>
-                <td>Eng</td>
-                <td>Phy</td>
-              </tr>
-              <tr>
-                <td class="highlight"><b>Saturday</b></td>
-                <td>Eng</td>
-                <td>Che</td>
-                <td>Mat</td>
-                <td colspan="3">SEMINAR</td>
-                <td class="special">SPORTS</td>
-              </tr>
-            </table>
-            <div>
-              <button class="change-timetable-btn" id="changeTimetableBtn">
-                Đổi thời khóa biểu
-              </button>
+            <!-- Start  -->
+            <div class="main">
+              <div class="order">
+                <div class="head">
+                  Tiêu đề
+                </div>
+                Cái này show ra file pdf hay gì đó nhé
+                
+              </div>
+              <button class="btn-download">Tải xuống</button>
             </div>
-            <!-- End timetable -->
+            <!-- End  -->
           </main>
           <!-- MAIN -->
         </section>
       </div>
     </div>
-    <!-- Modal -->
-    <div id="changeTimetableModal" class="modal">
-      <div class="modal-content">
-        <span id="closeChangeTimetable" class="close">&times;</span>
-        <h2>Đổi Thời Khóa Biểu</h2>
-        <form id="changeTimetableForm">
-          <label for="reason">Môn cần đổi, lý do đổi:</label>
-          <textarea id="reason" name="reason" required></textarea>
-
-          <label for="notes">Ghi chú:</label>
-          <textarea id="notes" name="notes"></textarea>
-
-          <button type="submit" class="submit-btn">Gửi yêu cầu</button>
-        </form>
-      </div>
-    </div>
 
     <script src="script.js"></script>
+    <script>
+      new MultiSelectTag("chooses"); // id
+    </script>
   </body>
 </html>

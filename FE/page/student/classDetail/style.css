@@ -103,7 +103,6 @@ body {
   border: 1px solid #2648ae;
 }
 
-
 /* End Search */
 .item-drop-down {
   display: flex;
@@ -432,34 +431,92 @@ box-shadow: var(--shadow); */
   color: #342E37;
 }
 
-#content main .head-title .left {
+#content main .head-title .left div {
+  width: 72vw;
   display: flex;
   justify-content: space-between;
-  width: -webkit-fill-available;
   align-items: center;
 }
 
-#content main .head-title .left button {
-  width: 7rem;
+#content main .head-title .left a {
+  cursor: pointer;
+}
+
+#content main .head-title .left div #feedback-btn {
+  width: 11rem;
   height: 2rem;
-  border: none;
+  font-size: 1rem;
   border-radius: 1rem;
+  border: none;
   color: #fff;
   background-color: #2648ae;
   cursor: pointer;
 }
 
-#content main .head-title .left button:hover{
+#content main .head-title .left div #feedback-btn:hover {
   color: #2648ae;
   background-color: #fff;
   border: 1px solid #2648ae;
 }
 
-#content main .head-title .left button i {
-  margin-right: 0.5rem;
+/* Start Class detail */
+.class-detail {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0px 2px 8px 0px rgb(34, 124, 112, 0.2);
+
 }
 
+.class-detail .detail-header {
+  margin-bottom: 1rem;
+}
 
+.class-detail h3 {
+  font-weight: 600;
+}
+
+.class-detail .detail>div {
+  margin-bottom: 1rem;
+}
+
+.class-detail .time,
+.report {
+  display: flex;
+  justify-content: space-between;
+}
+
+.class-detail .time button,
+.report button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.class-detail .time button:hover, .report button:hover {
+  text-decoration: underline;
+  color: #393e46;
+}
+
+#btn-class-list {
+  border: none;
+  background-color: #2648ae;
+  color: #fff;
+  width: 10.5rem;
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+}
+
+.back {
+  display: block;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+/* End Class detail */
 
 
 /* MAIN */
@@ -508,7 +565,6 @@ box-shadow: var(--shadow); */
   cursor: pointer;
 }
 
-
 /* Start notification modal */
 #notificationModal .modal-content{
   margin-left: 230px;
@@ -516,129 +572,34 @@ box-shadow: var(--shadow); */
 /* End notification modal */
 
 /* End: MODAL */
-/* Start: classList */
-#content main .table-data {
-  display: flex;
-  flex-wrap: wrap;
-  grid-gap: 24px;
-  margin-top: 24px;
-  width: 100%;
-  color: #342E37;
-}
 
-#content main .table-data>div {
-  border-radius: 20px;
-  background: #F9F9F9;
-  padding: 24px;
-  overflow-x: auto;
-}
-
-#content main .table-data .head {
-  display: flex;
-  align-items: center;
-  grid-gap: 16px;
-  margin-bottom: 24px;
-}
-
-#content main .table-data .head h3 {
-  margin-right: auto;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-#content main .table-data .head button {
-  color: #fff;
-  background: #2e4ead;
-  border: none;
-  width: 8.5rem;
-  height: 2rem;
-  border-radius: 2rem;
-  cursor: pointer;
-}
-
-#content main .table-data .head button:hover {
-  color: #2e4ead;
-  background: #fff;
-  border: 1px solid #2648ae;
-}
-
-#content main .table-data .head button i {
-  font-weight: 400;
-  margin-right: 0.5rem;
-
-}
-
-
-
-#content main .table-data .head .bx {
-  cursor: pointer;
-}
-
-#content main .table-data .order {
-  flex-grow: 1;
-  flex-basis: 500px;
-}
-
-#content main .table-data .order table {
+/* Start table in modal */
+/* Bảng */
+table {
   width: 100%;
   border-collapse: collapse;
 }
 
-#content main .table-data .order table th {
-  padding-bottom: 12px;
-  font-size: 13px;
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #eee;
-  text-align: center;
 }
 
-#content main .table-data .order table td {
-  padding: 16px 0;
-  text-align: center;
+th {
+  background-color: #2648ae;
+  color: #fff;
 }
 
-#content main .table-data .order table td:last-child a {
-  cursor: pointer;
-  color: #333;
+/* Hover */
+tr:hover {
+  background-color: #f5f5f5;
 }
 
-#content main .table-data .order table td:last-child a:first-child {
-  margin-right: 1rem;
-}
-
-
-#content main .table-data .order table tr td:first-child {
-  display: flex;
-  align-items: center;
-  grid-gap: 12px;
-  padding-left: 6px;
-  justify-content: center;
-}
-
-#content main .table-data .order table td img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-#content main .table-data .order table thead tr th {
-  font-size: 1.5rem;
-}
-
-#content main .table-data .order table tbody tr:hover {
-  background: #eee;
-}
-
-#content main .table-data .order table tr td .status {
-  font-size: 14px;
-  padding: 6px 16px;
-  color: #F9F9F9;
-  border-radius: 20px;
-  font-weight: 600;
-}
-
-
-
-
-/* End: classList */
+/* End table in modal */

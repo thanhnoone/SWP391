@@ -98,9 +98,11 @@ body {
 }
 
 .search button:hover {
-  background: #2648ae;
+  background: #fff;
   color: #2648ae;
+  border: 1px solid #2648ae;
 }
+
 
 /* End Search */
 .item-drop-down{
@@ -546,6 +548,13 @@ box-shadow: var(--shadow); */
   text-decoration: none;
   cursor: pointer;
 }
+
+
+/* Start notification modal */
+#notificationModal .modal-content{
+  margin-left: 230px;
+}
+/* End notification modal */
 
 /* End: MODAL */
 /* Start: TIMETABLE */

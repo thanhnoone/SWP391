@@ -93,6 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // End modal notification detail
 
-// Start timetable
+// Start select grade and subject
 
-// End timetable
+// End select grade and subject

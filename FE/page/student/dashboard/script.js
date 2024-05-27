@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeButton = document.querySelector(".modal .close");
   closeButton.addEventListener("click", closeModal);
 
+
   // Close modal when clicking outside of the modal content
   window.addEventListener("click", function (event) {
     const modal = document.getElementById("notificationModal");
@@ -93,6 +94,47 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // End modal notification detail
 
-// Start timetable
+// Start change timetable
+document.addEventListener('DOMContentLoaded', (event) => {
+  const modal = document.getElementById("changeTimetableModal");
+  const btn = document.getElementById("changeTimetableBtn");
+  const span = document.getElementById("closeChangeTimetable");
 
-// End timetable
+
+  // Khi bấm nút, hiển thị modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // Khi bấm vào dấu X, đóng modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Khi bấm ra ngoài modal, đóng modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Xử lý form submit
+  const form = document.getElementById("changeTimetableForm");
+  form.onsubmit = function(event) {
+    event.preventDefault();
+    // Lấy giá trị từ form
+    const reason = document.getElementById("reason").value;
+    const notes = document.getElementById("notes").value;
+
+    // Thực hiện xử lý gửi yêu cầu ở đây
+    // Ví dụ: Gửi AJAX request tới server
+
+    console.log("Lý do đổi:", reason);
+    console.log("Ghi chú:", notes);
+
+    // Đóng modal sau khi gửi yêu cầu
+    modal.style.display = "none";
+  }
+});
+
+// End change timetable

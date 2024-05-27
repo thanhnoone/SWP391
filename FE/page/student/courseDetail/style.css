@@ -449,7 +449,7 @@ box-shadow: var(--shadow); */
   cursor: pointer;
 }
 
-#content main .head-title .left button:hover{
+#content main .head-title .left button:hover {
   color: #2648ae;
   background-color: #fff;
   border: 1px solid #2648ae;
@@ -459,6 +459,33 @@ box-shadow: var(--shadow); */
   margin-right: 0.5rem;
 }
 
+.head-title form{
+  display: flex;
+  gap: 1rem;
+}
+
+.head{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.btn-register{
+  background-color: #2648ae;
+  border: none;
+  color: #fff;
+  width: 5.5rem;
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.btn-register:hover{
+  background-color: #fff;
+  border: 1px solid #2648ae;
+  color: #2648ae;
+}
 
 
 
@@ -508,12 +535,12 @@ box-shadow: var(--shadow); */
   cursor: pointer;
 }
 
-
 /* Start notification modal */
 #notificationModal .modal-content{
   margin-left: 230px;
 }
 /* End notification modal */
+
 
 /* End: MODAL */
 /* Start: classList */
