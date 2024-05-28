@@ -1,0 +1,41 @@
+package com.example.service;
+
+import com.example.model.User;
+import com.example.repository.UserRepository;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AdminService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public long getUserCount() {
+        return userRepository.count();
+    }
+
+    public long getManagementCount() {
+        // Role ID cho "Management" là 4
+        return userRepository.countByRole_Id(4);
+    }
+    
+    public User getUserById(int id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+    
+    
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+    
+    
+    
+}

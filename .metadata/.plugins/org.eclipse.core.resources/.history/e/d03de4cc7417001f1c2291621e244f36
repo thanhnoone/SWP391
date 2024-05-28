@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang chủ</title>
+</head>
+<body>
+    <h1>Chào mừng đến trang chủ</h1>
+    <form action="${pageContext.request.contextPath}/logout" method="post">
+        <button type="submit">Đăng xuất</button>
+    </form>
+</body>
+</html>
+ll

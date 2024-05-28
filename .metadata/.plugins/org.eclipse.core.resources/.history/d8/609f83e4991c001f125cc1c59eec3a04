@@ -1,0 +1,28 @@
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import com.example.service.AdminService;
+import com.example.model.User;
+
+import java.util.List;
+
+@Configuration
+@ComponentScan(basePackages = "com.example")
+public class test {
+
+    public static void main(String[] args) {
+        // Load the Spring context
+        ApplicationContext context = new AnnotationConfigApplicationContext(test.class);
+
+        // Get the AdminService bean
+        AdminService adminService = context.getBean(AdminService.class);
+
+        // Call the getAllUsers method and print the results
+        List<User> users = adminService.getAllUsers();
+        for (User user : users) {
+            System.out.println("Username: " + user.getUsername());
+        }
+    }
+}

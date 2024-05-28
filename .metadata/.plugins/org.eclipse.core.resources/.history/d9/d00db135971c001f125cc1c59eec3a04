@@ -1,0 +1,21 @@
+package com.example;
+
+import java.util.List;
+
+import org.springframework.ui.Model;
+
+import com.example.model.User;
+
+public class test {
+
+	public static void main(String[] args) {
+		
+		
+	        List<User> users = adminService.findAllUsers();
+	        model.addAttribute("users", users);
+	        
+	
+		
+	}
+	
+}

@@ -1,0 +1,76 @@
+package com.example.controller;
+
+import com.example.model.User;
+import com.example.service.AdminService;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class AdminController {
+
+    @Autowired
+    private AdminService adminService;
+
+    @GetMapping("/admin")
+    public String adminDashboard(Model model) {
+        long userCount = adminService.getUserCount();
+        model.addAttribute("userCount", userCount);
+        return "admin-dashboard"; // Tên của template view, không cần đuôi .html
+    }
+
+    @GetMapping("/admin/management-count")
+    public String managementCount(Model model) {
+        long managementCount = adminService.getManagementCount();
+        model.addAttribute("managementCount", managementCount);
+        return "management-dashboard"; // Tên của template view
+    }
+
+    @GetMapping("/admin/profile")
+    public String profile(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", user);
+        return "profile"; // Tên của template view
+    }
+
+    @PostMapping("/admin/update-profile")
+    public String updateProfile(@RequestParam String name, @RequestParam String email, @RequestParam String phone, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        user.setName(name);
+        user.setEmail(email);
+        user.setPhone(phone);
+        adminService.saveUser(user);
+        session.setAttribute("user", user);
+        return "redirect:/admin/profile";
+    }
+
+    @PostMapping("/admin/edit-profile")
+    public String saveProfile(@ModelAttribute User updatedUser, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+
+        user.setName(updatedUser.getName());
+        user.setEmail(updatedUser.getEmail());
+        user.setPhone(updatedUser.getPhone());
+        user.setAddress(updatedUser.getAddress());
+        user.setDob(updatedUser.getDob());
+        adminService.saveUser(user);
+        session.setAttribute("user", user);
+        return "redirect:/admin/profile";
+    }
+}

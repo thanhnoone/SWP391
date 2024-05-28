@@ -1,0 +1,22 @@
+package com.example.service;
+
+import com.example.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AdminService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public long getUserCount() {
+        return userRepository.count();
+    }
+
+    public int getManagementCount() {
+        // Giả sử Role ID cho "Management" là 2
+    	
+        return userRepository.countByRole_Id(4);
+    }
+}

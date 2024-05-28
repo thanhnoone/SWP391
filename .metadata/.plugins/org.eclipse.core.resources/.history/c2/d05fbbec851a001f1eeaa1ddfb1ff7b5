@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/styleadmindashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/admin">Home</a></li>
+            <li><a href="/accountManagement">Account Management</a></li>
+            <li><a href="/approveManagement">Approve Management</a></li>
+            <li><a href="/changePassword">Change Password</a></li>
+            <li><a href="/createPost">Create Post</a></li>
+            <li><a href="/dashboardadmin">Dashboard</a></li>
+            <li><a href="/notificationDetail">Notification Detail</a></li>
+            <li><a href="/postDetail">Post Detail</a></li>
+            <li><a href="/profileadmin">Profile Admin</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Dashboard Content</h2>
+            <p>Welcome to the admin dashboard. Here you can manage various aspects of the application.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+    
+</body>
+</html>

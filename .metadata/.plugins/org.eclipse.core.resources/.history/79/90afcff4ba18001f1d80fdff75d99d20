@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guest Page</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-home"></i>Guest Page</a>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-bars" id="menu-btn"></i>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home">
+        <div class="container">
+            <div class="landing">
+                <div class="content">
+                    <span>Welcome to</span>
+                    <h3>Guest Page</h3>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+                <div class="image">
+                    <img src="your-image-path.jpg" alt="Home Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="image">
+            <img src="your-image-path.jpg" alt="About Image">
+        </div>
+        <div class="content">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="services-box">
+            <div class="box">
+                <h3>Service 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="box">
+                <h3>Service 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="box">
+                <h3>Service 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="top">
+                <div class="logo-details">
+                    Guest Page
+                </div>
+            </div>
+            <div class="link-boxes">
+                <div class="box">
+                    <span class="link_name">Company</span>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </div>
+                <div class="box">
+                    <span class="link_name">Help</span>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </div>
+                <div class="box input-box">
+                    <span class="link_name">Subscribe</span>
+                    <input type="text" placeholder="Enter your email">
+                    <input type="button" value="Subscribe">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span>&copy; 2024 Guest Page. All Rights Reserved.</span>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const navbar = document.querySelector('.navbar');
+
+        menuBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

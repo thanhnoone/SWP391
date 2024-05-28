@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.top_navbar {
+  background-color: #774ea7;
+  color: white;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.top_menu {
+  display: flex;
+  align-items: center;
+}
+
+.top_menu .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.top_menu ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.top_menu ul li {
+  margin-left: 20px;
+}
+
+.top_menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.top_menu ul li a.search {
+  font-size: 20px;
+}
+
+.top_menu ul li a:hover {
+  color: #baa6cf;
+}
+
+.top_menu ul li .btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #baa6cf;
+  color: #774ea7;
+  text-decoration: none;
+}
+
+.top_menu ul li .btn:hover {
+  background-color: white;
+}
+
+.main_container {
+  padding: 40px;
+}
+
+.content {
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h5 {
+  font-size: 20px;
+  color: #774ea7;
+}
+
+.content h1 {
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+.content p {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+.content .btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #774ea7;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.content .btn:hover {
+  background-color: #baa6cf;
+  color: #774ea7;
+}
+
+/* Travel Section */
+.travel {
+  background-color: #774ea7;
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.travel .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.travel .box {
+  background-color: white;
+  color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 30%;
+  margin: 10px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.travel .box img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.travel .box h4 {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #774ea7;
+}
+
+.travel .box p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Destinations Section */
+.destinations {
+  background-color: #f4f4f9;
+  padding: 60px 0;
+}
+
+.destinations .label {
+  text-align: center;
+  font-size: 20px;
+  color: #774ea7;
+  margin-bottom: 40px;
+}
+
+.destinations .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.destinations .container-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 100%;
+  margin: 10px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.destinations .container-box .heading {
+  font-size: 24px;
+  color: #774ea7;
+}
+
+.destinations .container-box .content {
+  margin-top: 20px;
+}
+
+.destinations .container-box .content p {
+  font-size: 14px;
+  color: #555;
+}
+
+.destinations .container-box .content a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #774ea7;
+  text-decoration: none;
+}
+
+.destinations .container-box .content a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #302851;
+  color: white;
+  padding: 60px 0;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+footer .detail,
+footer .about-us {
+  flex: 1 1 30%;
+  margin: 10px;
+}
+
+footer .detail h3 {
+  font-size: 24px;
+}
+
+footer .detail p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #afafb6;
+}
+
+footer .detail h5 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+footer .detail a {
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+footer .detail a:hover {
+  text-decoration: underline;
+}
+
+footer .detail .social a {
+  margin-right: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+footer .detail .social a:hover {
+  color: #afafb6;
+}
+
+footer .about-us h4 {
+  font-size: 18px;
+}
+
+footer .copyright {
+  background-color: #20132e;
+  padding: 20px 0;
+  text-align: center;
+  color: #afafb6;
+  font-size: 14px;
+}
+
+footer .copyright a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer .copyright a:hover {
+  text-decoration: underline;
+}
+
+/* Form Styles for Login and Register */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form .button {
+  width: 100%;
+  padding: 12px;
+  background-color: #774ea7;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+}
+
+form .button:hover {
+  background-color: #baa6cf;
+}
+
+form .error {
+  color: red;
+  font-size: 14px;
+}
+
+form .recover a {
+  color: #774ea7;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+form .recover a:hover {
+  text-decoration: underline;
+}
+
+form .or {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0;
+}
+
+form .icons {
+  text-align: center;
+}
+
+form .icons svg {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+form .not-member {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0;
+}
+
+form .not-member a {
+  color: #774ea7;
+  text-decoration: none;
+}
+
+form .not-member a:hover {
+  text-decoration: underline;
+}
+
+.login-page,
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-page .wrapper,
+.register-page .wrapper {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-page .form,
+.register-page .form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-page .form h2,
+.register-page .form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #774ea7;
+}
+
+.login-page .form p,
+.register-page .form p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.login-page .form .error,
+.register-page .form .error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.login-page .form .button,
+.register-page .form .button {
+  width: 100%;
+  padding: 12px;
+  background-color: #774ea7;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-page .form .button:hover,
+.register-page .form .button:hover {
+  background-color: #baa6cf;
+}
+
+.login-page .form .recover a,
+.register-page .form .recover a {
+  color: #774ea7;
+  text-decoration: none;
+}
+
+.login-page .form .recover a:hover,
+.register-page .form .recover a:hover {
+  text-decoration: underline;
+}
+
+.login-page .form .or,
+.register-page .form .or {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0;
+}
+
+.login-page .form .icons,
+.register-page .form .icons {
+  text-align: center;
+}
+
+.login-page .form .icons svg,
+.register-page .form .icons svg {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.login-page .form .not-member,
+.register-page .form .not-member {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0;
+}
+
+.login-page .form .not-member a,
+.register-page .form .not-member a {
+  color: #774ea7;
+  text-decoration: none;
+}
+
+.login-page .form .not-member a:hover,
+.register-page .form .not-member a:hover {
+  text-decoration: underline;
+}
