@@ -9,7 +9,12 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
@@ -26,7 +31,7 @@ public class UserService {
     private JavaMailSender mailSender;
 
     public void saveUser(User user) {
-        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt())); // Mã hóa mật khẩu khi lưu
+        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         userRepository.save(user);
     }
 
@@ -85,14 +90,29 @@ public class UserService {
         return String.valueOf(code);
     }
 
-    public boolean verifyUserDetails(String email, int userCode, String currentPassword) {
-        User user = userRepository.findByEmailAndCode(email, userCode);
-        return user != null && BCrypt.checkpw(currentPassword, user.getPassword());
+    public void updateProfileImage(User user, MultipartFile image) throws IOException {
+        if (!image.isEmpty()) {
+            String uploadDir = "user-photos/" + user.getId();
+            String fileName = image.getOriginalFilename();
+            saveFile(uploadDir, fileName, image);
+            user.setProfileImage(uploadDir + "/" + fileName);
+            userRepository.save(user);
+        }
     }
 
-    public void updatePassword(User user, String newPassword) {
-        user.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
-        userRepository.save(user);
+    public static void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
+        Path uploadPath = Paths.get(uploadDir);
+
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        try (var inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath);
+        } catch (IOException e) {
+            throw new IOException("Could not save file: " + fileName, e);
+        }
     }
 
     public User findByEmailAndCode(String email, int code) {

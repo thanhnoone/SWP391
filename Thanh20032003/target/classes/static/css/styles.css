@@ -1,117 +1,313 @@
-/* Reset some default styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Áp dụng ảnh nền chỉ cho các trang đăng nhập và đăng ký */
-.login-page, .register-page, .forgot-password-page, .change-password-page {
-    background: url('https://phunugioi.com/wp-content/uploads/2020/02/mau-background-dep.jpg') no-repeat center center fixed;
-    background-size: cover;
+body {
+  background: #e1ecf2;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.wrapper {
+  margin: 10px;
 }
 
-.signup-content {
-    display: flex;
-    width: 70%;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+.wrapper .top_navbar {
+  width: calc(100% - 20px);
+  height: 60px;
+  display: flex;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 10px;
 }
 
-.signup-content .image {
-    width: 50%;
-    background: url('/images/content.jpg') no-repeat center center;
-    background-size: cover;
+.wrapper .top_navbar .top_menu {
+  width: 100%;
+  border-top-left-radius: 20px;
+  height: 100%;
+  background: #fff;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.signup-content .form {
-    width: 50%;
-    padding: 50px;
-    color: #fff;
+.wrapper .top_navbar .top_menu .logo {
+  color: #2e4ead;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
-.signup-content .form h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    text-align: center;
+.wrapper .top_navbar .top_menu ul {
+  display: flex;
 }
 
-.signup-content .form input, .signup-content .form select {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    font-size: 16px;
-    box-sizing: border-box;
+.wrapper .top_navbar .top_menu ul li .search {
+  display: block;
+  margin: 0 10px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: 1px solid #2e4ead;
+  border-radius: 50%;
+  color: #2e4ead;
 }
 
-.signup-content .form select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #000;
+.wrapper .top_navbar .top_menu ul li .btn {
+  display: block;
+  margin: 0 10px;
+  width: 80px;
+  height: 35px;
+  line-height: 32px;
+  text-align: center;
+  border: 1px solid #2e4ead;
+  border-radius: 10px;
+  color: #2e4ead;
 }
 
-.signup-content .form select:focus {
-    border-color: #FFD700; /* Vàng */
-    outline: none;
+.wrapper .top_navbar .top_menu ul li a:hover {
+  background: #4360b5;
+  color: #fff;
 }
 
-.signup-content .form select option {
-    background-color: #fff; /* Màu nền của tùy chọn */
-    color: #000; /* Màu văn bản của tùy chọn */
+.wrapper .top_navbar .top_menu ul li a:hover i {
+  color: #fff;
 }
 
-.signup-content .form select option:checked {
-    background-color: #0000FF; /* Màu nền khi được chọn (xanh) */
-    color: #fff; /* Màu văn bản khi được chọn (trắng) */
+.wrapper .top_navbar .top_menu ul li .btn-sign-up {
+  background: #4360b5;
+  color: #fff;
 }
 
-.signup-content .form input:focus, .signup-content .form select:focus {
-    border-bottom: 2px solid #FFD700; /* Vàng */
-    outline: none;
+.wrapper .top_navbar .top_menu ul li .btn-sign-up:hover {
+  background: #fff;
+  color: #4360b5;
 }
 
-.signup-content .form button {
-    width: 100%;
-    padding: 15px;
-    background: #4CAF50;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
+.wrapper .main_container {
+  width: calc(100% - 200px);
+  margin-top: 70px;
+  padding: 15px;
+  transition: all 0.3s ease;
 }
 
-.signup-content .form button:hover {
-    background: #45a049;
+.wrapper .main_container .item {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 22px;
 }
 
-.signup-content .form a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    margin-top: 15px;
+.wrapper.collapse .main_container {
+  width: calc(100% - 70px);
+  margin-left: 70px;
 }
 
-.signup-content .form a:hover {
-    text-decoration: underline;
+/* Content section start here */
+.content h5 {
+  text-transform: uppercase;
+  color: #2e4ead;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
-/* Thiết lập lại ảnh nền cho các trang khác */
-.users-page, .student-page, .parent-page, .teacher-page, .manager-page, .admin-page {
-    background: none;
+.content h1 {
+  font-size: 4rem;
+  max-width: 100%;
+  color: #2e4ead;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  color: #666;
+  font-weight: 300;
+  max-width: 40rem;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* travel section starts here */
+.travel {
+  padding: 1rem 5rem;
+}
+
+.travel .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+.travel .container .box p {
+  color: #666;
+}
+
+/* destination section starts here */
+.destinations {
+  width: 100%;
+  padding: 4rem 3rem;
+}
+
+.destinations .container {
+  width: 100%;
+}
+
+.destinations .container .container-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.destinations .container .container-box .heading {
+  max-width: 30rem;
+}
+
+.destinations .container .container-box .content {
+  max-width: 35rem;
+}
+
+.destinations .container .container-box .content p {
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.destinations .container .container-box .content a {
+  color: #2e4ead;
+  font-weight: 600;
+}
+
+.destinations .container .container-box .content a i {
+  margin-left: 0.5rem;
+}
+
+.destinations .container .container-box .content a:hover i {
+  margin-left: 0.1rem;
+}
+
+/* footer section starts here */
+footer {
+  padding: 1.5rem;
+  width: 100%;
+}
+
+footer .footer {
+  background: #2e4ead;
+  border-radius: 0.7rem;
+  padding: 6rem 7rem;
+  padding-bottom: 1rem;
+}
+
+footer .footer .container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(46, 78, 173, 0.5);
+  gap: 2rem;
+}
+
+footer .footer .container .detail {
+  max-width: 32rem;
+}
+
+footer .footer .container .detail h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+footer .footer .container .detail p {
+  line-height: 1.6;
+  color: rgb(255, 255, 255 / 80%);
+  margin-bottom: 1.5rem;
+}
+
+footer .footer .container .detail h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+footer .footer .container .detail a {
+  color: rgb(255, 255, 255 / 80%);
+  font-size: 0.9rem;
+  border-bottom: 2px solid #00cee4;
+  padding: 1px 0;
+  display: inline-block;
+}
+
+footer .footer .container .detail .social {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+footer .footer .container .detail .social a {
+  border: none;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+footer .footer .container h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+footer .footer .container li {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+footer .footer .container a {
+  color: rgb(255, 255, 255 / 80%);
+}
+
+footer .footer .container a:hover {
+  color: var(--white-color);
+}
+
+footer .footer .container span {
+  color: #000;
+  background: #00cee4;
+  font-size: 0.9rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.3rem;
+  font-weight: 500;
+}
+
+footer .footer .copyright {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgb(255, 255, 255 / 80%);
+  text-align: center;
+}
+
+footer .footer .copyright a {
+  color: rgb(255, 255, 255 / 80%);
+  margin-left: 1rem;
+  text-align: center;
 }

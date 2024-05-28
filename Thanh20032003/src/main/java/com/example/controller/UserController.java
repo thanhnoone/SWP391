@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -30,7 +32,7 @@ public class UserController {
         if (userService.authenticateUser(username, password, roleId)) {
             User user = userService.findByUsername(username);
             session.setAttribute("user", user);
-            return "redirect:" + getRedirectUrlByRole(user.getRole().getDescription());
+            return "redirect:/dashboard";
         }
         List<Role> roles = userService.findAllRoles();
         model.addAttribute("roles", roles);
@@ -41,21 +43,52 @@ public class UserController {
         return "login";
     }
 
-    private String getRedirectUrlByRole(Role.RoleDescription role) {
-        switch (role) {
-            case STUDENT:
-                return "/student";
-            case PARENT:
-                return "/parent";
-            case TEACHER:
-                return "/teacher";
-            case MANAGER:
-                return "/manager";
-            case ADMIN:
-                return "/admin";
-            default:
-                throw new IllegalArgumentException("Invalid role: " + role);
+    @GetMapping("/dashboard")
+    public String dashboard(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
         }
+        model.addAttribute("user", user);
+        return "dashboard";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", user);
+        return "profile";
+    }
+
+    @PostMapping("/profile-image")
+    public String updateProfileImage(@RequestParam("image") MultipartFile image, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        try {
+            userService.updateProfileImage(user, image);
+            session.setAttribute("user", user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/update-profile")
+    public String updateProfile(@RequestParam String name, @RequestParam String email, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        user.setName(name);
+        user.setEmail(email);
+        userService.saveUser(user);
+        session.setAttribute("user", user);
+        return "redirect:/profile";
     }
 
     @GetMapping("/register")
@@ -67,7 +100,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute User user, @RequestParam int roleId, Model model, HttpSession session) {
+    public String registerUser(@ModelAttribute User user, @RequestParam int roleId, Model model) {
         if (userService.findByUsername(user.getUsername()) != null) {
             model.addAttribute("error", "Username already exists");
             return "register";
@@ -78,29 +111,10 @@ public class UserController {
         }
         Role role = userService.findRoleById(roleId);
         user.setRole(role);
-        user.setStatus(false); // Set user status to false until verification
+        user.setStatus(true);  // Skip email verification
         userService.saveUser(user);
-        userService.sendVerificationCode(user);
-        session.setAttribute("user", user);
-        return "redirect:/verify-code";
-    }
-
-    @GetMapping("/verify-code")
-    public String verifyCode(Model model) {
-        model.addAttribute("verificationCode", "");
-        return "verify-code";
-    }
-
-    @PostMapping("/verify-code")
-    public String verifyCode(@RequestParam String verificationCode, HttpSession session, Model model) {
-        User user = (User) session.getAttribute("user");
-        if (user != null && verificationCode.equals(user.getVerificationCode())) {
-            user.setStatus(true); // Set user status to true after successful verification
-            userService.saveUser(user);
-            return "redirect:/login";
-        }
-        model.addAttribute("error", "Invalid verification code");
-        return "verify-code";
+        // userService.sendVerificationCode(user);  // Skip sending verification code
+        return "redirect:/login";  // Redirect to login after registration
     }
 
     @GetMapping("/forgot-password")
@@ -110,33 +124,31 @@ public class UserController {
     }
 
     @PostMapping("/forgot-password")
-    public String forgotPassword(@RequestParam String email, @RequestParam int code, Model model, HttpSession session) {
-        User user = userService.findByEmail(email);
-        if (user == null || user.getCode() != code) {
+    public String forgotPassword(@RequestParam String email, @RequestParam int userCode, Model model, HttpSession session) {
+        User user = userService.findByEmailAndCode(email, userCode);
+        if (user == null) {
             model.addAttribute("error", "No user found with this email and code");
             return "forgot-password";
         }
-        userService.sendPasswordResetCode(user);
         session.setAttribute("user", user);
         return "redirect:/reset-password";
     }
 
     @GetMapping("/reset-password")
     public String resetPassword(Model model) {
-        model.addAttribute("resetCode", "");
         model.addAttribute("newPassword", "");
         return "reset-password";
     }
 
     @PostMapping("/reset-password")
-    public String resetPassword(@RequestParam String resetCode, @RequestParam String newPassword, HttpSession session, Model model) {
+    public String resetPassword(@RequestParam String newPassword, HttpSession session, Model model) {
         User user = (User) session.getAttribute("user");
-        if (user != null && resetCode.equals(user.getVerificationCode())) {
+        if (user != null) {
             user.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
             userService.saveUser(user);
             return "redirect:/login";
         }
-        model.addAttribute("error", "Invalid reset code");
+        model.addAttribute("error", "Invalid reset process");
         return "reset-password";
     }
 
@@ -149,15 +161,16 @@ public class UserController {
     }
 
     @PostMapping("/change-password")
-    public String changePassword(@RequestParam String email, @RequestParam int code, @RequestParam int roleId,
+    public String changePassword(@RequestParam String email, @RequestParam int userCode, @RequestParam int roleId,
                                  @RequestParam String currentPassword, @RequestParam String newPassword, HttpSession session, Model model) {
-        User user = userService.findByEmail(email);
-        if (user == null || user.getCode() != code || user.getRole().getId() != roleId || !BCrypt.checkpw(currentPassword, user.getPassword())) {
+        User user = userService.findByEmailAndCode(email, userCode);
+        if (user == null || user.getRole().getId() != roleId || !BCrypt.checkpw(currentPassword, user.getPassword())) {
             model.addAttribute("error", "Invalid credentials");
             return "change-password";
         }
         user.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
         userService.saveUser(user);
+        session.invalidate(); // Invalidate session after password change
         return "redirect:/login";
     }
 

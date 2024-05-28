@@ -1,7 +1,7 @@
 package com.example.model;
 
-import javax.persistence.*;
 import java.time.LocalDate;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "t14_user")
@@ -43,6 +43,9 @@ public class User {
 
     @Column(name = "C14_VERIFICATION_CODE")
     private String verificationCode;
+
+    @Column(name = "C14_PROFILE_IMAGE")
+    private String profileImage;
 
     @ManyToOne
     @JoinColumn(name = "C14_ROLE_ID")
@@ -147,6 +150,14 @@ public class User {
 
     public void setVerificationCode(String verificationCode) {
         this.verificationCode = verificationCode;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 
     public Role getRole() {
