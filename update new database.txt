@@ -1,0 +1,12 @@
+-- Chỉnh sửa database
+
+1. Teacher n-n Center
+--> xóa bảng teacher --> teacher thành T14_USER
+--> Xử lí n-n ở bảng T16 giống như STUDENT
+
+2. Center 1-n Manager
+--> xóa bảng manager --> manager thành T14_USER --> 5 actors trong hệ thống đều lưu trong bảng USER
+
+3. Tạo thêm bảng ROOM
+4. Ở bảng t06_feedback/ t11_...media 
+--> thêm thuộc tính send to để biết gửi cho ai !
