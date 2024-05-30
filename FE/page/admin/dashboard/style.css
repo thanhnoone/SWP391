@@ -705,6 +705,8 @@ body {
 .modal-content .close{
   font-size: 24px;
   cursor: pointer;
+  display: block;
+  text-align: end;
 }
 
 .modal-content h2{
@@ -816,11 +818,11 @@ body {
 /* Start delete TOAST */
 #toast {
   visibility: hidden;
-  width: 25vw;
-  height: 11vh;
+  width: 18vw;
+  height: 7vh;
   margin-left: -125px;
-  margin-top: -125px;
-  background-color: #fff;
+  margin-top: -165px;
+  background-color: #4caf50;
   text-align: center;
   border-radius: 2px;
   position: fixed;
@@ -842,13 +844,14 @@ body {
   height: 2rem;
   align-content: space-around;
   border: none;
-  color: #67b661;
+  color: #fff;
   font-size: 20px;
+  background-color: #4caf50;
 }
 
 #toast  p {
   align-content: space-around;
-  color: #333;
+  color: #fff;
   font-size: 18px;
 }
 

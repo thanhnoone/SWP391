@@ -115,6 +115,38 @@ $(document).ready(function () {
 
 //End modal create post
 
+// Start modal view post detail
+function openViewModal(post) {
+  const modal = document.getElementById("viewPostModal");
+  const postTitle = document.getElementById("postTitleViewModal");
+  const postContent = document.getElementById("postContentViewModal");
+
+  postTitle.innerText = post.C12_TITLE;
+  postContent.innerText = post.C12_CONTENT; 
+  modal.style.display = "block";
+  console.log(postTitle);
+  console.log("In ra post")
+}
+
+function closeViewModal() {
+  const modal = document.getElementById("viewPostModal");
+  modal.style.display = "none";
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const closeButton = document.querySelector("#viewPostModal .close");
+  closeButton.addEventListener("click", closeViewModal);
+
+  window.addEventListener("click", function (event) {
+    const modal = document.getElementById("viewPostModal");
+    if (event.target === modal) {
+      closeViewModal();
+    }
+  });
+});
+// End modal view post detail
+
 // Start: Hamburger
 $(document).ready(function () {
   $(".hamburger").click(function () {
@@ -163,7 +195,7 @@ function buildTable(data) {
     row.innerHTML = `
       <td><p>${e.C12_TITLE}</p></td>
       <td><p>${e.C12_PUBLISHED_DATE}</p></td>
-      <td><a href="#">Xem</a></td>
+      <td><a href="#" class="view-post" data-index="${index}">Xem</a></td>
       <td>
         <button class="approve-btn">Duyệt</button>
         <button class="reject-btn">Từ chối</button>
@@ -182,6 +214,14 @@ function buildTable(data) {
       data.splice(index, 1); // Remove post from data
       buildTable(data); // Rebuild table
       showToast("Từ chối thành công", "success"); // Show toast
+    });
+
+    row.querySelector(".view-post").addEventListener("click", (event) => {
+      event.preventDefault();
+      const postIndex = event.target.getAttribute("data-index");
+      openViewModal(data[postIndex]);
+  
+      
     });
   });
 }
