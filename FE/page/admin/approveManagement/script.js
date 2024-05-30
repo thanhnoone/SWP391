@@ -127,21 +127,62 @@ $(document).ready(function () {
 });
 // End: Hamburger
 
+// Start show toast notification
+function showToast(message, type) {
+  const toastContainer = document.getElementById("toastContainer");
+  const toast = document.createElement("div");
+  toast.classList.add("toast", type);
+  toast.innerHTML = `
+    <i class="fas fa-check"></i>
+    <span>${message}</span>
+  `;
+  toastContainer.appendChild(toast);
+
+  // Show the toast
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 100);
+
+  // Hide the toast after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove("show");
+    // Remove the toast from the DOM
+    setTimeout(() => {
+      toastContainer.removeChild(toast);
+    }, 500);
+  }, 3000);
+}
+// End show toast notification
+
 // Function to build table with data
 function buildTable(data) {
   var table = document.getElementById("tableBody");
   table.innerHTML = ""; // Clear existing table data
-  data.forEach((e) => {
-    var row = `<tr>
+  data.forEach((e, index) => {
+    var row = document.createElement("tr");
+    row.innerHTML = `
       <td><p>${e.C12_TITLE}</p></td>
       <td><p>${e.C12_PUBLISHED_DATE}</p></td>
       <td><a href="#">Xem</a></td>
       <td>
-        <button>Duyệt</button>
-        <button>Từ chối</button>
+        <button class="approve-btn">Duyệt</button>
+        <button class="reject-btn">Từ chối</button>
       </td>
-    </tr>`;
-    table.innerHTML += row;
+    `;
+    table.appendChild(row);
+
+    // Add event listeners for buttons
+    row.querySelector(".approve-btn").addEventListener("click", () => {
+      data.splice(index, 1); // Remove post from data
+      buildTable(data); // Rebuild table
+      showToast("Duyệt thành công", "success"); // Show toast
+    });
+
+    row.querySelector(".reject-btn").addEventListener("click", () => {
+      data.splice(index, 1); // Remove post from data
+      buildTable(data); // Rebuild table
+      showToast("Từ chối thành công", "success"); // Show toast
+    });
   });
 }
 
