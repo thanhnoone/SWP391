@@ -37,13 +37,14 @@ public class AdminMediaController {
         List<MediaResponse> mediaResponses = new ArrayList<>();
         List<Media> medias = adminMediaServiceImpl.findByType(false);
         for(Media media : medias) {
-            MediaResponse mediaResponse = new MediaResponse(media.getId(),
-                    media.getTitle(),
-                    media.getContent(),
-                    media.isType(),
-                    media.getPublishedDate(),
-                    media.getSendTo(),
-                    media.getUser().getName());
+            MediaResponse mediaResponse = new MediaResponse(
+                      media.getId(),
+                      media.getTitle(),
+                      media.getContent(),
+                      media.isType(),
+                      media.getPublishedDate(),
+                      media.getSendTo(),
+                      media.getUser().getName());
             mediaResponses.add(mediaResponse);
         }
         return mediaResponses;
@@ -54,13 +55,14 @@ public class AdminMediaController {
         List<MediaResponse> mediaResponses = new ArrayList<>();
         List<Media> medias = adminMediaServiceImpl.findByType(true);
         for(Media media : medias) {
-            MediaResponse mediaResponse = new MediaResponse(media.getId(),
-                    media.getTitle(),
-                    media.getContent(),
-                    media.isType(),
-                    media.getPublishedDate(),
-                    media.getSendTo(),
-                    media.getUser().getName());
+            MediaResponse mediaResponse = new MediaResponse(
+                      media.getId(),
+                      media.getTitle(),
+                      media.getContent(),
+                      media.isType(),
+                      media.getPublishedDate(),
+                      media.getSendTo(),
+                      media.getUser().getName());
             mediaResponses.add(mediaResponse);
         }
         return mediaResponses;
