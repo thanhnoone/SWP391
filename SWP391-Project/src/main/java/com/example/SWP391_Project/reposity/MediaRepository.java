@@ -10,20 +10,16 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MediaReposity extends JpaRepository<Media, Integer> {
-
-    // get "all posts" or "all notifications"
-    @Query("SELECT m FROM Media m " +
-            "JOIN m.user u " +
-            "JOIN u.role r " +
-            "WHERE m.type = :type")
-    List<Media> findByType(@Param("type") boolean type);
+public interface MediaRepository extends JpaRepository<Media, Integer> {
 
     // get manager's posts or notifications
+    List<Media> findByType(boolean type);
+
+
     // get admin's posts or notifications
-    @Query("SELECT m FROM Media m " +
+    @Query("SELECT m, u.username FROM Media m " +
             "JOIN m.user u " +
             "JOIN u.role r " +
             "WHERE m.type = :type AND r.description = :role")
-    List<Media> findMediaByTypeAndRole(@Param("type") boolean type, @Param("role") Role.RoleDescription role);
+    List<Media> findByTypeAndRole(boolean type, @Param("role") Role.RoleDescription role);
 }

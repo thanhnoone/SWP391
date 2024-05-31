@@ -1,13 +1,10 @@
 package com.example.SWP391_Project.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -40,8 +37,19 @@ public class Media {
     @Column(name = "C11_SEND_TO", nullable = false)
     String sendTo;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "C11_ACTOR_ID", referencedColumnName = "C14_USER_ID")
+    @ManyToOne
+    @JoinColumn(name = "C11_ACTOR_ID")
+    @JsonManagedReference
     User user;
+
+    public Media(int id, String title, String content, boolean type, Date publishedDate, String sendTo) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.type = type;
+        this.publishedDate = publishedDate;
+        this.sendTo = sendTo;
+    }
 }
+
+// Trigger JPA !! --> Auto reload

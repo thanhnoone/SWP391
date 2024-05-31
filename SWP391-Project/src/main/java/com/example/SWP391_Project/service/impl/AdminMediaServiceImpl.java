@@ -4,28 +4,34 @@ import com.example.SWP391_Project.dto.MediaDto;
 import com.example.SWP391_Project.model.Media;
 import com.example.SWP391_Project.model.Role;
 import com.example.SWP391_Project.model.User;
-import com.example.SWP391_Project.reposity.MediaReposity;
+import com.example.SWP391_Project.reposity.MediaRepository;
 import com.example.SWP391_Project.service.AdminMediaService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class AdminMediaServiceImpl implements AdminMediaService {
 
     @Autowired
-    private MediaReposity mediaReposity;
+    private MediaRepository mediaRepository;
 
     @Override
     public List<Media> findByType(boolean type) {
-        return mediaReposity.findByType(type);
+
+         return mediaRepository.findByType(type);
     }
 
     @Override
-    public List<Media> findMediaByTypeAndRole(boolean type, Role.RoleDescription role) {
-        return mediaReposity.findMediaByTypeAndRole(type, role);
+    public List<Media> findByTypeAndRole(boolean type, Role.RoleDescription role) {
+        return mediaRepository.findByTypeAndRole(type, role);
     }
 
     @Override
@@ -38,7 +44,7 @@ public class AdminMediaServiceImpl implements AdminMediaService {
                 .sendTo(mediaDto.getSendTo())
                 .user(User.builder().id(5).build())
                 .build();
-        return mediaReposity.save(media);
+        return mediaRepository.save(media);
     }
 
     @Override
@@ -51,14 +57,14 @@ public class AdminMediaServiceImpl implements AdminMediaService {
                 .sendTo(mediaDto.getSendTo())
                 .user(User.builder().id(5).build())
                 .build();
-        return mediaReposity.save(media);
+        return mediaRepository.save(media);
     }
 
     @Override
     public Media findMedia(int id) {
-        return mediaReposity
+        return mediaRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("The media hasnt been existed !!"));
+                .orElseThrow(() -> new RuntimeException("The media hasn't been existed !!"));
     }
 
     @Override
@@ -71,22 +77,13 @@ public class AdminMediaServiceImpl implements AdminMediaService {
         media.setSendTo(mediaDto.getSendTo());
         media.setUser(User.builder().id(5).build());
 
-        return mediaReposity.save(media);
+        return mediaRepository.save(media);
     }
 
     @Override
     public void deleteMedia(int id) {
-        mediaReposity.deleteById(id);
+        mediaRepository.deleteById(id);
     }
 }
 
-//// get user by Id
-//public User getUser(String id) {
-//    return userRepository
-//            .findById(id)
-//            .orElseThrow(() -> new RuntimeException("User not found!!!!"));
-//}
-//
-//// update user's information
-//public User updateUser(String userId, UserUpdateRequest request) {
-//    User userToBeUpdated = getUser(userId);
+
