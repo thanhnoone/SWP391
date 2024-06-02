@@ -1,0 +1,14 @@
+trạng thái => còn học ở trung tâm hay hết rồi ???
+    => thêm attribute ?? hay là bảng trung gian ?
+         -> 1 bảng trung gian tổng cho các trường hợp khác nữa
+             cứ gắn nó có thể null thì oke hết =Đ cứ chiếu khoá ngoại vào
+                 rồi lấy mấy cái cần thôi nào k cần cứ vứt ở xó đó
+                  -> chỉ cần 1 bảng bị thẩm lậu thôi
+                     còn mấy bảng khác sẽ được sạch sẽ
+
+giả sử trường hợp ban 1 tk của học viên ở trung tâm 
+    => chỉ cần xử lý back-end
+        => ko thể đăng kí các khoá học chưa center_id đó ?
+    < cần xử lý cái dashboard tổng nx :| >
+
+chú ý phần search/lọc -> search/filter by accountStatus or ban or not ?

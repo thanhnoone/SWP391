@@ -1,0 +1,15 @@
+1. TRANG CHỦ CƠ BẢN ĐÃ XONG
+        => CHỦ YẾU BỔ SUNG RUNLINE DATE Ở MỖI DASHBOARD CỦA TỪNG ACTORS
+        => EXTENSION: BỔ SUNG TIME, DAY THEO FORMAT
+                Thứ hai, 29-05-2024 <07:20>  -> k cần hiện giây
+                    => vì RUNLINE -> check ko cần load trang thì thgian có tăng theo hay ko
+
+2. THÊM PHẦN QUẢN LÝ KHOÁ HỌC<KHOÁ HỌC> Ở NAV-BAR => GÁN LINK VÀO "KHOÁ HỌC" Ở DASHBOARD
+            => NÊN GỌI LÀ KHOÁ HỌC THAY VÌ QUẢN LÝ VÌ GIÁO VIÊN QUẢN LÝ QUẢN LÝ CHỈ VIEW
+
+3. SEARCH MẶC ĐỊNH MỌI PAGE -> ƯU TIÊN LÀM KẾ CUỐI
+
+4. PHẦN NAV-BAR CẦN BỔ SUNG 1 SỐ TÍNH NĂNG MỚI SAU KHI ĐC UPDATE
+
+5. PHẦN CẠNH TỔNG QUAN => KHÁ LÀ TRỐNG NÊN THÊM ANIMATION CHẲNG HẠN => EYE-CATCHY
+        => CÓ THỂ LÀ HOÀN THÀNH KỊP TUẦN 6 THÌ SẼ BỔ SUNG EXTENSION VÀO ĐÓ

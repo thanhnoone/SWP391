@@ -1,0 +1,16 @@
+theo như từ note1 + usecase thì manager có thể crud courses
+    => trong db có lẽ cần bổ sung center_id
+
+    => liệu rằng khi mở create 1 course nào đó
+         thì liệu cần thông qua manager hay không
+
+    => trong course-information cần phải có center_id để giúp phân biệt nơi cần đến
+        => nhấn vào center -> center profile hiện ra
+
+    => center-profile nào cùng mục với quản lý
+        => tạo thêm dành cho center-profile hay là gộp chung với profile của manager?
+            <cá nhân: nên tách ra 2 profile nhưng vẫn trong mục kiểm soát của manager>
+            
+    => xử lý rooms thì sao?
+
+=> extension: managers are parents, teachers are parents

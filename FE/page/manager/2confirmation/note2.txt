@@ -1,0 +1,24 @@
+cần bổ sung thêm nút duyệt tất cả -> tiết kiệm công sức khi nhiều
+ngoài ra có lẽ cần duyệt cả học sinh -> khả năng cao k cần vì rườm rà
+
+
+phần hiện thị tên người dùng ở góc trên bên phải
+-> cần xử lý in case, tên quá dài
+
+đồng thời cũng xử lý phần hiện thị tên tk ở phần quản lí
+    , cũng như tên ở phần quản lí thông báo kiểm duyệt, ...
+     tuy đã ổn nhưng nếu dài quá thì cần phải bóp ở dạng mặc định
+
+
+chưa xử lí phần overview như khi bấm vào tk của 1 người
+    => hiện thị ra 1 số thông tin cá nhân cơ bản của người đó
+    => nâng cao hơn thì người dùng chính chủ có quyền
+                cho phép hiện thị loại thông tin ngoài
+                tuy nhiên vẫn phải có 1 số thông tin cơ bản bắt buộc auto-show
+
+***giao diện cá nhân của mỗi actors sẽ đc design khác nhau
+        => ưu tiên xử lý đẹp hơn cho quản lí <ĐÓNG GÓI NHƯ 1 NAV-BAR CÓ THỂ CHỌN NHIỀU KHI NHẤN VÀO>
+        => xử lý tốt giáo viên -> XU HƯỚNG TRẺ HOÁ
+        => học sinh thì ưu tiên bắt mắt
+        => phụ huynh thì ưu tiên TO - ÍT - DỄ SỬ DỤNG -> XU HƯỚNG "TRẺ HOÁ" => CÓ THỂ BẮT MẮT NX
+        => admin xử lí sau tại k cần đẹp
