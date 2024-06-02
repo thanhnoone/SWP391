@@ -11,8 +11,8 @@ import java.util.Date;
 public class MediaResponse extends Media {
     String username;
 
-    public MediaResponse(int id, String title, String content, boolean type, Date publishedDate, String sendTo, String username) {
-        super(id, title, content, type, publishedDate, sendTo);
+    public MediaResponse(int id, String title, String content, boolean type, boolean status, Date publishedDate, String sendTo, String username) {
+        super(id, title, content, type, status, publishedDate, sendTo);
         this.username = username;
     }
 

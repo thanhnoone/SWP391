@@ -31,6 +31,9 @@ public class Media {
     @Column(name = "C11_TYPE", nullable = false)
     boolean type;
 
+    @Column(name = "C11_MEDIA_STATUS")
+    boolean status; // default = false
+
     @Column(name = "C11_PUBLISHED_DATE", nullable = false)
     Date publishedDate;
 
@@ -42,10 +45,11 @@ public class Media {
     @JsonManagedReference
     User user;
 
-    public Media(int id, String title, String content, boolean type, Date publishedDate, String sendTo) {
+    public Media(int id, String title, String content, boolean type, boolean status, Date publishedDate, String sendTo) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.status = status;
         this.type = type;
         this.publishedDate = publishedDate;
         this.sendTo = sendTo;

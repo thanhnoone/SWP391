@@ -6,16 +6,13 @@ import com.example.SWP391_Project.model.Role;
 import com.example.SWP391_Project.model.User;
 import com.example.SWP391_Project.reposity.MediaRepository;
 import com.example.SWP391_Project.service.AdminMediaService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class AdminMediaServiceImpl implements AdminMediaService {
@@ -25,7 +22,6 @@ public class AdminMediaServiceImpl implements AdminMediaService {
 
     @Override
     public List<Media> findByType(boolean type) {
-
          return mediaRepository.findByType(type);
     }
 
@@ -81,8 +77,33 @@ public class AdminMediaServiceImpl implements AdminMediaService {
     }
 
     @Override
-    public void deleteMedia(int id) {
-        mediaRepository.deleteById(id);
+    public boolean deleteMedia(int id) {
+        try {
+            mediaRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public void approveMedia(int mediaId) throws ServiceException {
+        try {
+            Media media = mediaRepository.findById(mediaId).orElseThrow(() -> new ServiceException("Media not found with ID: " + mediaId));
+            media.setStatus(true);
+            mediaRepository.save(media);
+        } catch (DataAccessException e) {
+            throw new ServiceException("Failed to approve media with ID: " + mediaId, e);
+        }
+    }
+
+    @Override
+    public void rejectMedia(int mediaId) throws ServiceException {
+        try {
+            mediaRepository.deleteById(mediaId); // --> Xóa luôn khỏi database !!
+        } catch (DataAccessException e) {
+            throw new ServiceException("Failed to reject media with ID: " + mediaId, e);
+        }
     }
 }
 
