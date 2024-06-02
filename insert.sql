@@ -221,24 +221,23 @@ INSERT INTO t10_result (C10_RESULT_TYPE, C10_RESULT_VAL, C10_STUDENT_ID, C10_COU
 
 
 
-
-INSERT INTO t11_manager_admin_media (C11_TITLE, C11_CONTENT, C11_TYPE, C11_PUBLISHED_DATE, C11_SEND_TO, C11_FILE_PATH, C11_ACTOR_ID)
+INSERT INTO t11_manager_admin_media (C11_TITLE, C11_CONTENT, C11_TYPE, C11_MEDIA_STATUS, C11_PUBLISHED_DATE, C11_SEND_TO, C11_FILE_PATH, C11_ACTOR_ID)
 VALUES
-    ('Title 1', 'Content 1', 1, CURRENT_DATE(), 'admin1@example.com', NULL, 4),
-    ('Title 2', 'Content 2', 1, CURRENT_DATE(), 'admin1@example.com', NULL, 9),
-    ('Title 3', 'Content 3', 0, CURRENT_DATE(), 'All', NULL, 5),
-    ('Title 4', 'Content 4', 1, CURRENT_DATE(), 'admin1@example.com', NULL, 14),
-    ('Title 5', 'Content 5', 0, CURRENT_DATE(), 'All', NULL, 5),
-    ('Title 6', 'Content 6', 1, CURRENT_DATE(), 'admin1@example.com', NULL, 19),
-    ('Title 7', 'Content 7', 1, CURRENT_DATE(), 'All', NULL, 5),
-    ('Title 8', 'Content 8', 0, CURRENT_DATE(), 'All', NULL, 5),
-    ('Title 9', 'Content 9', 1, CURRENT_DATE(), 'admin1@example.com', NULL, 4),
-    ('Title 10', 'Content 10', 0, CURRENT_DATE(), 'admin1@example.com', NULL, 9),
-    ('Another Title', 'Another Content', 1, CURRENT_DATE(), 'All', NULL, 5),
-    ('Another Title 2', 'Another Content 2', 1, CURRENT_DATE(), 'All', NULL, 5),
-    ('Another Title 3', 'Another Content 3', 1, CURRENT_DATE(), 'All', NULL, 5),
-    ('Another Title 4', 'Another Content 4', 1, CURRENT_DATE(), 'All', NULL, 5),
-    ('Another Title 5', 'Another Content 5', 1, CURRENT_DATE(), 'All', NULL, 5);
+    ('Title 1', 'Content 1', 1, DEFAULT, CURRENT_DATE(), 'admin1@example.com', NULL, 4),
+    ('Title 2', 'Content 2', 1, DEFAULT, CURRENT_DATE(), 'admin1@example.com', NULL, 9),
+    ('Title 3', 'Content 3', 0, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Title 4', 'Content 4', 1, DEFAULT, CURRENT_DATE(), 'admin1@example.com', NULL, 14),
+    ('Title 5', 'Content 5', 0, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Title 6', 'Content 6', 1, DEFAULT, CURRENT_DATE(), 'admin1@example.com', NULL, 19),
+    ('Title 7', 'Content 7', 1, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Title 8', 'Content 8', 0, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Title 9', 'Content 9', 1, DEFAULT, CURRENT_DATE(), 'admin1@example.com', NULL, 4),
+    ('Title 10', 'Content 10', 0, DEFAULT, CURRENT_DATE(), 'admin1@example.com', NULL, 9),
+    ('Another Title', 'Another Content', 1, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Another Title 2', 'Another Content 2', 1, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Another Title 3', 'Another Content 3', 1, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Another Title 4', 'Another Content 4', 1, DEFAULT, CURRENT_DATE(), 'All', NULL, 5),
+    ('Another Title 5', 'Another Content 5', 1, DEFAULT, CURRENT_DATE(), 'All', NULL, 5);
 
 
 -- Chèn lại dữ liệu với student id là 31, 32, 33, hoặc 34 (lựa chọn thủ công)

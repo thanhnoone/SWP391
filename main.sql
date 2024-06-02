@@ -149,12 +149,18 @@ CREATE TABLE t10_result (
 -- actor là admin/ manager
 -- 0: notification, --> false
 -- 1: post          --> true
+
+-- C11_MEDIA_STATUS
+-- + Mặc định là 0 --> chưa được duyệt --> chuyển đến admin
+--   ADMIN: + duyệt --> SET C11_MEDIA_STATUS thành 1
+--          + ko duyệt --> xóa bay luôn khỏi database --> gửi thông báo về lại manager
 DROP TABLE IF EXISTS t11_manager_admin_media;
 CREATE TABLE t11_manager_admin_media (
     C11_ID INT AUTO_INCREMENT PRIMARY KEY,
     C11_TITLE VARCHAR(100) NOT NULL,
     C11_CONTENT TEXT NOT NULL,
     C11_TYPE BIT(1) NOT NULL, -- phân loại là POST/ NOTIFICATION
+    C11_MEDIA_STATUS BIT(1) DEFAULT(0),
     C11_PUBLISHED_DATE DATETIME NOT NULL,
     C11_SEND_TO VARCHAR(50) NOT NULL DEFAULT 'All', -- email
     C11_FILE_PATH VARCHAR(255),
